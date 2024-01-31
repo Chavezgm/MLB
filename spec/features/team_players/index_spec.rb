@@ -19,7 +19,7 @@ RSpec.describe Player  do
       expect(page).to_not have_content(player1.name)
       expect(page).to_not have_content(player1.hall_of_fame)
       expect(page).to_not have_content(player1.games_played)
-      save_and_open_page
+      # save_and_open_page
 
     end
   end
