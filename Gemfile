@@ -55,6 +55,8 @@ group :development, :test do
   gem "pry"
   gem "simplecov"
   gem "capybara"
+  gem "shoulda-matchers"
+  gem "launchy"
 end
 
 group :development do

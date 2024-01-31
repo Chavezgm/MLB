@@ -1,0 +1,9 @@
+<h1>Players on the: <%= @team.name %></h1>
+
+<% @players.each do |player| %>
+  <li>
+    <p>Name: <%= player.name %></p>
+    <p>Hall of Fame: <%= player.hall_of_fame %></p>
+    <p>Games Played: <%= player.games_played %></p>
+  </li>
+<% end %>
