@@ -1,7 +1,7 @@
 <h1>Players</h1>
 
 <% @players.each do |player| %>
-  <%= player.name %>
-  <%= player.hall_of_fame %>
-  <%= player.games_played %>
+  <h2><%= player.name %></h2>
+  <p>Hall Of fame: <%= player.hall_of_fame %></p>
+  <p>Games Played: <%= player.games_played %></p>
 <% end %>
