@@ -2,3 +2,5 @@
   <p>Year Founded: <%= @team.year_founded %></p>
   <p> World Series Appearance: <%= @team.world_series_appearance %></p>
   <p>Number of Players: <%= @team.players_count %></p>
+
+  <%= link_to "Players", "#{@team.id}/players" %>

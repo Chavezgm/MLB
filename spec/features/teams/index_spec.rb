@@ -36,7 +36,7 @@ RSpec.describe Team, type: :feature do
       expect(page).to have_link("teams")
       
       click_on("teams")
-      save_and_open_page
+      # save_and_open_page
       
       expect(current_path).to eq("/teams")
 
