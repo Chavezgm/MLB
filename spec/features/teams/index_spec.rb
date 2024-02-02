@@ -16,11 +16,12 @@ RSpec.describe Team, type: :feature do
     it "shows teams sorted by most recent" do 
       team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true, created_at: Time.new(2021, 12, 03)  )
       team2 = Team.create!(name: "Rockies", year_founded:1993, world_series_appearance: false,created_at: Time.new(2022, 10, 30) )
-      # TALK ABOUT THIS ONE NEED CAPYBARA FOR THE EXPECTS 
+       
       visit '/teams'
       # save_and_open_page
-      expect(page).to have_content(team.name)
-      expect(page).to have_content(team2.name)
+      # expect(page).to have_content(team.name)
+      expect(team2.name).to appear_before(team.name)
+      # expect(page).to have_content(team2.name)
 
     end
 

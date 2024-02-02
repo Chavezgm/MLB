@@ -4,3 +4,5 @@
   <p>Number of Players: <%= @team.players_count %></p>
 
   <%= link_to "Players", "#{@team.id}/players" %>
+
+  <%= link_to "Update #{@team.name}", "#{@team.id}/edit" %>

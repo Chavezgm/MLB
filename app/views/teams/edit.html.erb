@@ -1,0 +1,16 @@
+<%= form_with url: "/teams/#{@team.id}", method: :patch  do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :year_founded %>
+    <%= f.text_field :year_founded %>
+
+    <%= f.label :world_series_appearance %>
+    <%= f.text_field :world_series_appearance %>
+    
+  </div>
+  <div>
+    <%= f.submit 'Update Team' %>
+  </div>
+<% end %>

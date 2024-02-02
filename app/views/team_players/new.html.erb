@@ -1,0 +1,15 @@
+<%= form_with url: "/teams/#{@team.id}/players", method: :post  do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :games_played %>
+    <%= f.text_field :games_played %>
+
+    <%= f.label :hall_of_fame %>
+    <%= f.text_field :hall_of_fame %>
+  </div>
+  <div>
+    <%= f.submit 'Create Player' %>
+  </div>
+<% end %>
