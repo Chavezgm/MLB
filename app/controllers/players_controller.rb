@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController 
   def index 
-    @players = Player.all 
+    @players = Player.true_records
   end
 
   def show 
