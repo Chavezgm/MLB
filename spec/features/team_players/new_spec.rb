@@ -25,15 +25,16 @@ RSpec.describe "the Team player creation" do
       player3 = Player.create!(name: "Mookie Betts", hall_of_fame: false, games_played: 200, team_id:team.id)
       
       visit "/teams/#{team.id}/players/new"
-
       fill_in('name', with: "Rodrigo")
-      fill_in('hall_of_fame', with: false)
+      fill_in('hall_of_fame', with: true)
       fill_in('games_played', with: 400)
-
+      
       click_on("Create Player")
-
+      
       expect(current_path).to eq("/teams/#{team.id}/players")
       expect(page).to have_content('Rodrigo')
+      # save_and_open_page
+
     end
   end
 end
