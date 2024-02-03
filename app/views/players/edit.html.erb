@@ -1,0 +1,17 @@
+<%= form_with url: "/players/#{@player.id}", method: :post do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :hall_of_fame %>
+    <%= f.text_field :hall_of_fame %>
+
+    <%= f.label :games_played %>
+    <%= f.text_field :games_played %>
+
+   
+  </div>
+  <div>
+    <%= f.submit "Update #{@player.name}" %>
+  </div>
+<% end %>
