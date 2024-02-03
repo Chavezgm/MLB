@@ -35,6 +35,8 @@ RSpec.describe Player  do
 
         visit "/teams/#{team.id}/players"
 
+        expect(player3.name).to appear_before(player2.name)
+
         click_link("Sort Players Alphabetically")
 
         expect(current_path).to eq("/teams/#{team.id}/players")

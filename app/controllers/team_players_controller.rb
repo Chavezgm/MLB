@@ -2,8 +2,12 @@ class TeamPlayersController < ApplicationController
   def index
 
     @team = Team.find(params[:id])
-    # require 'pry'; binding.pry
     @players = @team.players
+    # require 'pry'; binding.pry
+
+    if params[:sort] == 'true'
+      @players = @players.alphabetical_order
+    end
     #is this reffering to the players table?
   end
 
