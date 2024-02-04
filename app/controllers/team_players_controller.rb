@@ -8,7 +8,7 @@ class TeamPlayersController < ApplicationController
     if params[:sort] == 'true'
       @players = @players.alphabetical_order
     end
-    #is this reffering to the players table?
+    
   end
 
   def new

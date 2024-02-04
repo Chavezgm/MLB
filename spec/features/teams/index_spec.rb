@@ -46,4 +46,30 @@ RSpec.describe Team, type: :feature do
      
     end
   end
+
+  describe 'US #17' do
+    describe 'Team update from team index' do
+      it 'updates a team from the index page' do
+        team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
+        
+        visit "/teams"
+
+        click_on("Update #{team.name}")
+
+        fill_in("name", with: "San Francisco Giants")
+        fill_in("year_founded", with: 1883)
+        fill_in('world_series_appearance', with: false) #not true but just for the test
+
+        click_on("Update Team")
+        # save_and_open_page
+
+        expect(page).to have_content('San Francisco Giants')
+        expect(page).to have_content(1883)
+        expect(page).to have_content(false)
+        
+        expect(page).to_not have_content("Dodgers")
+
+      end
+    end
+  end
 end
