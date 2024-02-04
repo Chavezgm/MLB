@@ -1,7 +1,7 @@
 <h1>Players</h1>
 
 <% @players.each do |player| %>
-  <h2><%= player.name %></h2>
+  <h2><%= player.name %> <%= link_to "Update #{player.name}", "/players/#{player.id}/edit" %></h2>
   <p>Hall Of fame: <%= player.hall_of_fame %></p>
   <p>Games Played: <%= player.games_played %></p>
 <% end %>

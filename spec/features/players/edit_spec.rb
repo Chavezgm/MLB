@@ -34,7 +34,7 @@ RSpec.describe "players update" do
         fill_in("hall_of_fame", with: false)
         fill_in('games_played', with: 300)
 
-        click_on("Update #{player1.name}")
+        click_on("Update Player")
 
         expect(current_path).to eq("/players/#{player1.id}")
 

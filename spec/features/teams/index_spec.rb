@@ -56,6 +56,8 @@ RSpec.describe Team, type: :feature do
 
         click_on("Update #{team.name}")
 
+        expect(current_path).to eq("/teams/#{team.id}/edit")
+
         fill_in("name", with: "San Francisco Giants")
         fill_in("year_founded", with: 1883)
         fill_in('world_series_appearance', with: false) #not true but just for the test
