@@ -1,4 +1,4 @@
-<%= form_with url: "/players/#{@player.id}", method: :post do |f| %>
+<%= form_with url: "/players/#{@player.id}", method: :patch do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>

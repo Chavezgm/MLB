@@ -3,3 +3,5 @@
 <p>Games played: <%= @player.games_played%></p>
 
 <%= link_to 'Update Player', "/players/#{@player.id}/edit" %>
+
+<%= link_to "Delete #{@player.name}", "/players/#{@player.id}", method: :delete %>

@@ -67,6 +67,7 @@ RSpec.describe Team, type: :feature do
         expect(current_path).to eq("/teams")
 
         expect(page).to_not have_content('Dodgers')
+        expect(page).to have_content('Rockies')
 
       end
     end

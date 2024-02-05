@@ -16,4 +16,10 @@ class PlayersController < ApplicationController
     player.update(name: params[:name], hall_of_fame: params[:hall_of_fame], games_played: params[:games_played] )
     redirect_to "/players/#{player.id}"
   end
+
+  def destroy 
+    player = Player.find(params[:id])
+    player.destroy
+    redirect_to "/players"
+  end
 end

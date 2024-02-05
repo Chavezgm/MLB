@@ -69,7 +69,7 @@ RSpec.describe Player, type: :feature do
     end
   end
 
-  describe 'US #18' do
+  describe 'US 18' do
     describe 'Player update from players index page' do
       it 'updates a player from a players index' do
         team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
@@ -96,7 +96,6 @@ RSpec.describe Player, type: :feature do
         expect(page).to have_content(true)
 
         expect(page).to_not have_content('Todd Helton')
-
       end
     end
   end
