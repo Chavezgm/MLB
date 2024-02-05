@@ -4,4 +4,5 @@
   <h2><%= player.name %> <%= link_to "Update #{player.name}", "/players/#{player.id}/edit" %></h2>
   <p>Hall Of fame: <%= player.hall_of_fame %></p>
   <p>Games Played: <%= player.games_played %></p>
+  <%= link_to "Delete #{player.name}", "players/#{player.id}", method: :delete %>
 <% end %>

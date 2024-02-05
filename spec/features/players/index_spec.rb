@@ -99,4 +99,27 @@ RSpec.describe Player, type: :feature do
       end
     end
   end
+
+  describe 'US 23' do
+   describe 'Deletes a player' do
+     it 'Deletes a player from a players index page' do
+        team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
+        team2 = Team.create!(name: "Rockies", year_founded:1993, world_series_appearance: false )
+        player1 = Player.create!(name: "Todd Helton", hall_of_fame: true, games_played: 2247, team_id:team2.id)
+        player2 = Player.create!(name: "Freddie Freeman", hall_of_fame: false, games_played: 100,team_id:team.id)
+        player3 = Player.create!(name: "Mookie Betts", hall_of_fame: false, games_played: 200, team_id:team.id)
+        player4 = Player.create!(name: "Bob lob", hall_of_fame: true, games_played: 400, team_id:team2.id)
+
+        visit "/players"
+
+        click_on("Delete #{player4.name}")
+
+        expect(current_path).to eq("/players")
+
+        expect(page).to have_content("Todd Helton")
+
+        expect(page).to_not have_content("Bob lob")
+     end
+   end
+  end
 end
