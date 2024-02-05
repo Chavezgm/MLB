@@ -6,3 +6,5 @@
   <%= link_to "Players", "#{@team.id}/players" %>
 
   <%= link_to "Update #{@team.name}", "#{@team.id}/edit" %>
+
+  <%= link_to "Delete #{@team.name}", "/teams/#{@team.id}" , method: :delete %>

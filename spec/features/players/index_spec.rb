@@ -90,7 +90,7 @@ RSpec.describe Player, type: :feature do
 
         click_on("Update Player")
         
-        save_and_open_page
+        # save_and_open_page
 
         expect(page).to have_content("Rodrigo Chavez")
         expect(page).to have_content(true)

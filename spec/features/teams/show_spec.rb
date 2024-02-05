@@ -50,4 +50,25 @@ RSpec.describe Team, type: :feature do
       expect(page).to have_content(player3.name)
     end
   end
+
+  describe 'US #19' do
+    describe 'Team delete' do
+      it 'Deletes a team from a Team show page' do
+        team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
+        team2 = Team.create!(name: "Rockies", year_founded:1993, world_series_appearance: false )
+        player1 = Player.create!(name: "Todd Helton", hall_of_fame: true, games_played: 2247, team_id:team2.id)
+        player2 = Player.create!(name: "Freddie Freeman", hall_of_fame: false, games_played: 100,team_id:team.id)
+        player3 = Player.create!(name: "Mookie Betts", hall_of_fame: false, games_played: 200, team_id:team.id)
+        
+        visit "/teams/#{team.id}"
+        
+        click_on("Delete #{team.name}")
+
+        expect(current_path).to eq("/teams")
+
+        expect(page).to_not have_content('Dodgers')
+
+      end
+    end
+  end
 end
