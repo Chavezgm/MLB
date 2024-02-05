@@ -20,4 +20,11 @@ class TeamPlayersController < ApplicationController
     team.players.create!(name: params[:name], games_played: params[:games_played], hall_of_fame: params[:hall_of_fame])
     redirect_to "/teams/#{team.id}/players"
   end
+
+  def destroy
+    team = Team.find(params[:team_id])
+    player = team.players.find(params[:id])
+    player.destroy
+    redirect_to "/teams/#{team.id}/players"
+  end
 end

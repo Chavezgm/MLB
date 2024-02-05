@@ -5,6 +5,9 @@
     <p>Name: <%= player.name %></p>
     <p>Hall of Fame: <%= player.hall_of_fame %></p>
     <p>Games Played: <%= player.games_played %></p>
+
+
+    <%= link_to "Delete #{player.name}", "/teams/#{@team.id}/players/#{player.id}", method: :delete %>
   </li>
 <% end %>
 

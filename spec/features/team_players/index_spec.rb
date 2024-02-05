@@ -62,4 +62,28 @@ RSpec.describe Player  do
       end
     end
   end
+
+  describe 'US 23 for Team_players' do
+    describe 'Deletes a team player' do
+      it 'deletes a team player' do
+        team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
+        team2 = Team.create!(name: "Rockies", year_founded:1993, world_series_appearance: false )
+        player1 = Player.create!(name: "Todd Helton", hall_of_fame: true, games_played: 2247, team_id:team2.id)
+        player2 = Player.create!(name: "Freddie Freeman", hall_of_fame: false, games_played: 100,team_id:team.id)
+        player3 = Player.create!(name: "Mookie Betts", hall_of_fame: false, games_played: 200, team_id:team.id)
+        player4 = Player.create!(name: "Jackie Robinson", hall_of_fame: true, games_played: 1000,team_id:team.id)
+        player5 = Player.create!(name: "David Ortiz", hall_of_fame: false, games_played: 500,team_id:team.id)
+       
+        visit "/teams/#{team.id}/players"
+
+        click_on("Delete #{player4.name}")
+
+        expect(current_path).to eq("/teams/#{team.id}/players")
+
+        expect(page).to have_content('David Ortiz')
+        #  save_and_open_page
+        expect(page).to_not have_content('Jackie Robinson')
+      end
+    end
+  end
 end
