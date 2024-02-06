@@ -47,7 +47,7 @@ RSpec.describe Player  do
     end
   end
 
-  describe 'US 21' do # need to get back to this!!! 
+  describe 'US 21' do 
     describe 'Team players ' do
       it 'Displays Over a Given Threshold ' do
         team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
@@ -59,6 +59,24 @@ RSpec.describe Player  do
         player5 = Player.create!(name: "David Ortiz", hall_of_fame: false, games_played: 500,team_id:team.id)
 
         visit "/teams/#{team.id}/players"
+
+        save_and_open_page
+
+        within '.games_over' do 
+          fill_in 'Games played above', with: 250
+          
+          click_on("Submit")
+        end
+        save_and_open_page
+        expect(current_path).to eq("/teams/#{team.id}/players")
+      
+        expect(page).to have_content(player4.name)
+        expect(page).to have_content(player5.name)
+
+        expect(page).to_not have_content(player2.name)
+        expect(page).to_not have_content(player3.name)
+
+
       end
     end
   end

@@ -6,8 +6,7 @@
     <p>Hall of Fame: <%= player.hall_of_fame %></p>
     <p>Games Played: <%= player.games_played %></p>
 
-
-    <%= link_to "Delete #{player.name}", "/teams/#{@team.id}/players/#{player.id}", method: :delete %>
+    <%= link_to "Delete #{player.name}", "/teams/#{@team.id}/players/#{player.id}", data:{turbo_method: :delete} %>
   </li>
 <% end %>
 
@@ -15,4 +14,14 @@
 
 <%= link_to 'Sort Players Alphabetically', "/teams/#{@team.id}/players?sort=true"  %>
 
+<section class="games_over">
+  <%= form_with url: "/teams/#{@team.id}/players", method: :get do |f| %>
+  
+    <%= f.label :games_played, "Games played above" %>
+    <%= f.text_field :games_played %>
 
+    <%= f.submit 'Submit' %>
+    
+  <% end %>
+  
+</section>
