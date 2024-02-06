@@ -29,4 +29,16 @@ RSpec.describe Player, type: :model do
       expect(Player.alphabetical_order).to eq([player2,player3,player1])
     end
   end
+
+  describe 'games_played' do
+    it 'displays games over a certain number' do
+      team = Team.create!(name: "Dodgers", year_founded:1884, world_series_appearance: true )
+      team2 = Team.create!(name: "Rockies", year_founded:1993, world_series_appearance: false )
+      player1 = Player.create!(name: "Todd Helton", hall_of_fame: true, games_played: 2247, team_id:team2.id)
+      player3 = Player.create!(name: "Mookie Betts", hall_of_fame: false, games_played: 200, team_id:team.id)
+      player2 = Player.create!(name: "Freddie Freeman", hall_of_fame: false, games_played: 100,team_id:team.id)
+      
+      expect(Player.games_played_over(150)).to eq([player1,player3])
+    end
+  end
 end

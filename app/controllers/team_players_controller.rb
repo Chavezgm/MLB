@@ -4,7 +4,7 @@ class TeamPlayersController < ApplicationController
     @team = Team.find(params[:id])
     @players = @team.players
     # require 'pry'; binding.pry
-    #should I 
+    
     if params[:sort] == 'true'
       @players = @players.alphabetical_order
     end
