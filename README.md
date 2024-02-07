@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-![My Database](images/my-image.png)
+![My Database](images/Database.png)
