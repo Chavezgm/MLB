@@ -60,14 +60,14 @@ RSpec.describe Player  do
 
         visit "/teams/#{team.id}/players"
 
-        save_and_open_page
+        # save_and_open_page
 
         within '.games_over' do 
           fill_in 'Games played above', with: 250
           
           click_on("Submit")
         end
-        save_and_open_page
+        # save_and_open_page
         expect(current_path).to eq("/teams/#{team.id}/players")
       
         expect(page).to have_content(player4.name)
@@ -75,8 +75,6 @@ RSpec.describe Player  do
 
         expect(page).to_not have_content(player2.name)
         expect(page).to_not have_content(player3.name)
-
-
       end
     end
   end
