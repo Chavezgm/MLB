@@ -7,4 +7,4 @@
 
   <%= link_to "Update #{@team.name}", "#{@team.id}/edit" %>
 
-  <%= link_to "Delete #{@team.name}", "/teams/#{@team.id}" , method: :delete %>
+  <%= link_to "Delete #{@team.name}", "/teams/#{@team.id}", data: {turbo_method: :delete} %>
